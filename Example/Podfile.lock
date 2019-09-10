@@ -1,0 +1,16 @@
+PODS:
+  - Dahlia (0.1)
+
+DEPENDENCIES:
+  - Dahlia (from `../`)
+
+EXTERNAL SOURCES:
+  Dahlia:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  Dahlia: 5fc20a9d81aacd0b93c55e6225ea8ec85ad75a9b
+
+PODFILE CHECKSUM: 0fe0f4300ae7a0386853cd2c922c871d77fe0e0d
+
+COCOAPODS: 1.8.0.beta.1
