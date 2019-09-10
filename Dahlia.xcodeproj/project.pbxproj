@@ -13,6 +13,7 @@
 		5FC9CDFB23274A3B00634CAA /* Dahlia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC9CDFA23274A3B00634CAA /* Dahlia.swift */; };
 		5FC9CDFD23274AF300634CAA /* DahliaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC9CDFC23274AF300634CAA /* DahliaViewController.swift */; };
 		5FC9CE0A23274E2600634CAA /* Mantis.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FC9CE0423274DA500634CAA /* Mantis.framework */; };
+		5FD3FF89232756FA0026A16C /* Impression.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FD3FF86232756D90026A16C /* Impression.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +38,20 @@
 			remoteGlobalIDString = 5F0DD34E2195244E00F9310B;
 			remoteInfo = Mantis;
 		};
+		5FD3FF85232756D90026A16C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5FD3FF81232756D90026A16C /* Impression.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5FC9CE182327511700634CAA;
+			remoteInfo = Impression;
+		};
+		5FD3FF87232756F10026A16C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5FD3FF81232756D90026A16C /* Impression.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 5FC9CE172327511700634CAA;
+			remoteInfo = Impression;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +64,7 @@
 		5FC9CDFC23274AF300634CAA /* DahliaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DahliaViewController.swift; sourceTree = "<group>"; };
 		5FC9CDFE23274DA500634CAA /* Mantis.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Mantis.xcodeproj; path = Mantis/Mantis.xcodeproj; sourceTree = "<group>"; };
 		5FC9CE0B23274E7400634CAA /* _Pods.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = _Pods.xcodeproj; path = Impression/_Pods.xcodeproj; sourceTree = "<group>"; };
+		5FD3FF81232756D90026A16C /* Impression.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Impression.xcodeproj; path = Impression/Impression.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5FD3FF89232756FA0026A16C /* Impression.framework in Frameworks */,
 				5FC9CE0A23274E2600634CAA /* Mantis.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -69,6 +86,7 @@
 				5F75102D2327448400244BA5 /* Dahlia */,
 				5F75102C2327448400244BA5 /* Products */,
 				5FC9CDFE23274DA500634CAA /* Mantis.xcodeproj */,
+				5FD3FF81232756D90026A16C /* Impression.xcodeproj */,
 				5FC9CE0923274E2600634CAA /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -116,6 +134,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		5FD3FF82232756D90026A16C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5FD3FF86232756D90026A16C /* Impression.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -142,6 +168,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				5FD3FF88232756F10026A16C /* PBXTargetDependency */,
 				5FC9CE0823274E0B00634CAA /* PBXTargetDependency */,
 			);
 			name = Dahlia;
@@ -180,6 +207,10 @@
 					ProjectRef = 5FC9CE0B23274E7400634CAA /* _Pods.xcodeproj */;
 				},
 				{
+					ProductGroup = 5FD3FF82232756D90026A16C /* Products */;
+					ProjectRef = 5FD3FF81232756D90026A16C /* Impression.xcodeproj */;
+				},
+				{
 					ProductGroup = 5FC9CDFF23274DA500634CAA /* Products */;
 					ProjectRef = 5FC9CDFE23274DA500634CAA /* Mantis.xcodeproj */;
 				},
@@ -204,6 +235,13 @@
 			fileType = wrapper.cfbundle;
 			path = MantisTests.xctest;
 			remoteRef = 5FC9CE0523274DA500634CAA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		5FD3FF86232756D90026A16C /* Impression.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Impression.framework;
+			remoteRef = 5FD3FF85232756D90026A16C /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -237,6 +275,11 @@
 			isa = PBXTargetDependency;
 			name = Mantis;
 			targetProxy = 5FC9CE0723274E0B00634CAA /* PBXContainerItemProxy */;
+		};
+		5FD3FF88232756F10026A16C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Impression;
+			targetProxy = 5FD3FF87232756F10026A16C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

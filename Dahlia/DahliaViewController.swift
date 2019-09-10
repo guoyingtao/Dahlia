@@ -8,6 +8,7 @@
 
 import UIKit
 import Mantis
+import Impression
 
 class DahliaViewController: UIViewController {
     
@@ -28,11 +29,11 @@ class DahliaViewController: UIViewController {
         super.viewDidLoad()
 
         if self.config.features.contains(.crop) {
-            let cropViewController = Mantis.cropViewController(image: UIImage())
+            let vc = Mantis.cropViewController(image: UIImage())
         }
         
         if self.config.features.contains(.filter) {
-            
+            let vc = Impression.createFilterViewController(image: UIImage(), delegate: nil, useDefaultFilters: true)
         }
     }
     
