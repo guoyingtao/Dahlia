@@ -1,0 +1,6 @@
+[submodule "Mantis"]
+	path = Mantis
+	url = https://github.com/guoyingtao/Mantis
+[submodule "Impression"]
+	path = Impression
+	url = https://github.com/guoyingtao/Impression
