@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		5F7510302327448400244BA5 /* Dahlia.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F75102E2327448400244BA5 /* Dahlia.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5FC9CDF72327466300634CAA /* Dahlia.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 5FC9CDF62327466300634CAA /* Dahlia.podspec */; };
+		5FC9CDF92327496100634CAA /* FeatureCandidates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC9CDF82327496100634CAA /* FeatureCandidates.swift */; };
+		5FC9CDFB23274A3B00634CAA /* Dahlia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC9CDFA23274A3B00634CAA /* Dahlia.swift */; };
+		5FC9CDFD23274AF300634CAA /* DahliaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC9CDFC23274AF300634CAA /* DahliaViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -16,6 +19,9 @@
 		5F75102E2327448400244BA5 /* Dahlia.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Dahlia.h; sourceTree = "<group>"; };
 		5F75102F2327448400244BA5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5FC9CDF62327466300634CAA /* Dahlia.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Dahlia.podspec; sourceTree = SOURCE_ROOT; };
+		5FC9CDF82327496100634CAA /* FeatureCandidates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureCandidates.swift; sourceTree = "<group>"; };
+		5FC9CDFA23274A3B00634CAA /* Dahlia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dahlia.swift; sourceTree = "<group>"; };
+		5FC9CDFC23274AF300634CAA /* DahliaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DahliaViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +57,9 @@
 				5FC9CDF62327466300634CAA /* Dahlia.podspec */,
 				5F75102E2327448400244BA5 /* Dahlia.h */,
 				5F75102F2327448400244BA5 /* Info.plist */,
+				5FC9CDF82327496100634CAA /* FeatureCandidates.swift */,
+				5FC9CDFA23274A3B00634CAA /* Dahlia.swift */,
+				5FC9CDFC23274AF300634CAA /* DahliaViewController.swift */,
 			);
 			path = Dahlia;
 			sourceTree = "<group>";
@@ -98,6 +107,7 @@
 				TargetAttributes = {
 					5F75102A2327448400244BA5 = {
 						CreatedOnToolsVersion = 10.3;
+						LastSwiftMigration = 1030;
 					};
 				};
 			};
@@ -134,6 +144,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5FC9CDFB23274A3B00634CAA /* Dahlia.swift in Sources */,
+				5FC9CDF92327496100634CAA /* FeatureCandidates.swift in Sources */,
+				5FC9CDFD23274AF300634CAA /* DahliaViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,6 +278,7 @@
 		5F7510342327448400244BA5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -282,6 +296,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.echo.Dahlia;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -290,6 +305,7 @@
 		5F7510352327448400244BA5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
