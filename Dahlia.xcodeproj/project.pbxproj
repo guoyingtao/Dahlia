@@ -12,7 +12,32 @@
 		5FC9CDF92327496100634CAA /* FeatureCandidates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC9CDF82327496100634CAA /* FeatureCandidates.swift */; };
 		5FC9CDFB23274A3B00634CAA /* Dahlia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC9CDFA23274A3B00634CAA /* Dahlia.swift */; };
 		5FC9CDFD23274AF300634CAA /* DahliaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC9CDFC23274AF300634CAA /* DahliaViewController.swift */; };
+		5FC9CE0A23274E2600634CAA /* Mantis.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FC9CE0423274DA500634CAA /* Mantis.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5FC9CE0323274DA500634CAA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5FC9CDFE23274DA500634CAA /* Mantis.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5F0DD34F2195244E00F9310B;
+			remoteInfo = Mantis;
+		};
+		5FC9CE0523274DA500634CAA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5FC9CDFE23274DA500634CAA /* Mantis.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5F0DD3582195244E00F9310B;
+			remoteInfo = MantisTests;
+		};
+		5FC9CE0723274E0B00634CAA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5FC9CDFE23274DA500634CAA /* Mantis.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 5F0DD34E2195244E00F9310B;
+			remoteInfo = Mantis;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		5F75102B2327448400244BA5 /* Dahlia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Dahlia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -22,6 +47,8 @@
 		5FC9CDF82327496100634CAA /* FeatureCandidates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureCandidates.swift; sourceTree = "<group>"; };
 		5FC9CDFA23274A3B00634CAA /* Dahlia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dahlia.swift; sourceTree = "<group>"; };
 		5FC9CDFC23274AF300634CAA /* DahliaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DahliaViewController.swift; sourceTree = "<group>"; };
+		5FC9CDFE23274DA500634CAA /* Mantis.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Mantis.xcodeproj; path = Mantis/Mantis.xcodeproj; sourceTree = "<group>"; };
+		5FC9CE0B23274E7400634CAA /* _Pods.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = _Pods.xcodeproj; path = Impression/_Pods.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5FC9CE0A23274E2600634CAA /* Mantis.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +68,8 @@
 			children = (
 				5F75102D2327448400244BA5 /* Dahlia */,
 				5F75102C2327448400244BA5 /* Products */,
+				5FC9CDFE23274DA500634CAA /* Mantis.xcodeproj */,
+				5FC9CE0923274E2600634CAA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -62,6 +92,28 @@
 				5FC9CDFC23274AF300634CAA /* DahliaViewController.swift */,
 			);
 			path = Dahlia;
+			sourceTree = "<group>";
+		};
+		5FC9CDFF23274DA500634CAA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5FC9CE0423274DA500634CAA /* Mantis.framework */,
+				5FC9CE0623274DA500634CAA /* MantisTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5FC9CE0923274E2600634CAA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5FC9CE0B23274E7400634CAA /* _Pods.xcodeproj */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5FC9CE0C23274E7400634CAA /* Products */ = {
+			isa = PBXGroup;
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -90,6 +142,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				5FC9CE0823274E0B00634CAA /* PBXTargetDependency */,
 			);
 			name = Dahlia;
 			productName = Dahlia;
@@ -121,12 +174,39 @@
 			mainGroup = 5F7510212327448400244BA5;
 			productRefGroup = 5F75102C2327448400244BA5 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 5FC9CE0C23274E7400634CAA /* Products */;
+					ProjectRef = 5FC9CE0B23274E7400634CAA /* _Pods.xcodeproj */;
+				},
+				{
+					ProductGroup = 5FC9CDFF23274DA500634CAA /* Products */;
+					ProjectRef = 5FC9CDFE23274DA500634CAA /* Mantis.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				5F75102A2327448400244BA5 /* Dahlia */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		5FC9CE0423274DA500634CAA /* Mantis.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Mantis.framework;
+			remoteRef = 5FC9CE0323274DA500634CAA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		5FC9CE0623274DA500634CAA /* MantisTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = MantisTests.xctest;
+			remoteRef = 5FC9CE0523274DA500634CAA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		5F7510292327448400244BA5 /* Resources */ = {
@@ -151,6 +231,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5FC9CE0823274E0B00634CAA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Mantis;
+			targetProxy = 5FC9CE0723274E0B00634CAA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		5F7510312327448400244BA5 /* Debug */ = {

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Mantis
 
 class DahliaViewController: UIViewController {
     
@@ -27,7 +28,7 @@ class DahliaViewController: UIViewController {
         super.viewDidLoad()
 
         if self.config.features.contains(.crop) {
-            
+            let cropViewController = Mantis.cropViewController(image: UIImage())
         }
         
         if self.config.features.contains(.filter) {
