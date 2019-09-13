@@ -23,10 +23,12 @@ Pod::Spec.new do |s|
   s.social_media_url   = "http://twitter.com/guoyingtao"
   s.platform     = :ios
   s.ios.deployment_target = '11.0'
-  s.source       = { :git => "https://github.com/guoyingtao/Dahlia.git", :tag => "#{s.version}" }
+  s.source       = { :git => "https://github.com/guoyingtao/Dahlia.git", :tag => "#{s.version}", :submodules => true }
   s.source_files  = "Dahlia/**/*.{h,swift}"
   s.resource_bundles = {
     "Resource" => ["Dahlia/**/*.lproj/*.strings"]
   }
+  s.dependency 'Mantis', '~> 0.29'
+  s.dependency 'Impression', '~> 1.1.0'
 
 end
