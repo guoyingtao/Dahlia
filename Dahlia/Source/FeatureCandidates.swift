@@ -16,8 +16,7 @@ public struct FeatureCandidates: OptionSet {
     
     static public let crop = FeatureCandidates(rawValue: 1 << 0)
     static public let filter = FeatureCandidates(rawValue: 1 << 1)
-//    static public let adjust = FeatureCandidates(rawValue: 1 << 2)
-//    static public let extra = FeatureCandidates(rawValue: 1 << 3)
+    static public let custom = FeatureCandidates(rawValue: 1 << 2)
     
     static public let `default`: FeatureCandidates = [crop, filter]
     static public let all: FeatureCandidates = [crop, filter]

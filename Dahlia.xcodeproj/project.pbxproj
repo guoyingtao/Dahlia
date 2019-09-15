@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		37ED590CC617DA2B271CCDAC /* Pods_Dahlia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CAD50E926073FB7D1CD7D42 /* Pods_Dahlia.framework */; };
+		5F427324232D9168000FF555 /* ImageProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F427323232D9168000FF555 /* ImageProcessor.swift */; };
 		5F7510302327448400244BA5 /* Dahlia.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F75102E2327448400244BA5 /* Dahlia.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5FC9CDF72327466300634CAA /* Dahlia.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 5FC9CDF62327466300634CAA /* Dahlia.podspec */; };
 		5FC9CDF92327496100634CAA /* FeatureCandidates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC9CDF82327496100634CAA /* FeatureCandidates.swift */; };
@@ -20,6 +21,7 @@
 /* Begin PBXFileReference section */
 		4CAD50E926073FB7D1CD7D42 /* Pods_Dahlia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dahlia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EEF1576A166DF78D9308EF6 /* Pods-Dahlia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dahlia.release.xcconfig"; path = "Target Support Files/Pods-Dahlia/Pods-Dahlia.release.xcconfig"; sourceTree = "<group>"; };
+		5F427323232D9168000FF555 /* ImageProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageProcessor.swift; sourceTree = "<group>"; };
 		5F75102B2327448400244BA5 /* Dahlia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Dahlia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F75102E2327448400244BA5 /* Dahlia.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Dahlia.h; sourceTree = "<group>"; };
 		5F75102F2327448400244BA5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 				5FC9CDFC23274AF300634CAA /* DahliaViewController.swift */,
 				5FFD2CDE2328753F00D5546D /* OperationBar.swift */,
 				5FFD2CE7232879F100D5546D /* LocalizedHelper.swift */,
+				5F427323232D9168000FF555 /* ImageProcessor.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -227,6 +230,7 @@
 				5FFD2CE8232879F100D5546D /* LocalizedHelper.swift in Sources */,
 				5FC9CDF92327496100634CAA /* FeatureCandidates.swift in Sources */,
 				5FC9CDFD23274AF300634CAA /* DahliaViewController.swift in Sources */,
+				5F427324232D9168000FF555 /* ImageProcessor.swift in Sources */,
 				5FFD2CDF2328753F00D5546D /* OperationBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

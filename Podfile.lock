@@ -1,10 +1,10 @@
 PODS:
   - Impression (1.1.0)
-  - Mantis (0.29)
+  - Mantis (0.30)
 
 DEPENDENCIES:
-  - Impression (~> 1.1.0)
-  - Mantis (~> 0.29)
+  - Impression
+  - Mantis
 
 SPEC REPOS:
   trunk:
@@ -13,8 +13,8 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Impression: 39e1b7d3fcbf14a2bf6d178ee824cf3c72b86ccc
-  Mantis: 704dded72d4563cbfa799207318ff62985834241
+  Mantis: 44ad1c042fad8d98db3dc71874c933c94e69a682
 
-PODFILE CHECKSUM: f2f05d687c5caa7dfd32490a2e42dc63709d6626
+PODFILE CHECKSUM: 25d878b151214ceed3b4e18b581eddb2ea1f6bd5
 
-COCOAPODS: 1.8.0.beta.1
+COCOAPODS: 1.8.0.beta.2

@@ -6,7 +6,7 @@ target 'Dahlia' do
   use_frameworks!
 
   # Pods for Dahlia
-  pod 'Mantis', '~> 0.29'
-  pod 'Impression', '~> 1.1.0'
+  pod 'Mantis'
+  pod 'Impression'
 
 end

@@ -10,16 +10,29 @@ import UIKit
 import Mantis
 import Impression
 
-protocol DahliaProtocol {
-    func didCancel()
-    func didProcessedImage(image: UIImage?)
+protocol DahliaViewControllerDelegate {
+    func dahliaViewControllerDidProcess(_ dahliaViewController: DahliaViewController, processedImage: UIImage)
+    func dahliaViewControllerDidFailedToProcess(_ dahliaViewController: DahliaViewController, originalImage: UIImage)
+    func dahliaViewControllerDidCancel(_ dahliaViewController: DahliaViewController, originalImage: UIImage)
+}
+
+extension DahliaViewControllerDelegate {
+    func dahliaViewControllerDidFailedToProcess(_ dahliaViewController: DahliaViewController, originalImage: UIImage) {
+        
+    }
+    
+    func dahliaViewControllerDidCancel(_ dahliaViewController: DahliaViewController, originalImage: UIImage) {
+        
+    }
 }
 
 class DahliaViewController: UIViewController {
     
     public var image: UIImage?
+    public var currentImage: UIImage?
     public var config = Dahlia.Config()
-    public var delegate: DahliaProtocol?
+    public var delegate: DahliaViewControllerDelegate?
+    public var imageProcessorList: [ImageProcessor] = []
     
     init?(image: UIImage, config: Dahlia.Config) {
         
@@ -46,17 +59,29 @@ class DahliaViewController: UIViewController {
         
         if self.config.features.contains(.crop) {
             let vc = Mantis.cropViewController(image: UIImage())
-            
+            let processor = ImageProcessor(title: "Crop", icon: UIImage(), selectedIcon: UIImage(), relatedViewController: vc)
+                
+            imageProcessorList.append(processor)
         }
         
         if self.config.features.contains(.filter) {
             let vc = Impression.createFilterViewController(image: UIImage(), delegate: nil, useDefaultFilters: true)
+            
+            let processor = ImageProcessor(title: "Filter", icon: UIImage(), selectedIcon: UIImage(), relatedViewController: vc)
+                
+            imageProcessorList.append(processor)
         }
     }
     
+    func takeoverProcessedImage(_ image: UIImage) {
+        currentImage = image
+    }
 
     func confirmCancel() {
-        
+        guard let image = image else {
+            return
+        }
+        delegate?.dahliaViewControllerDidFailedToProcess(self, originalImage: image)
     }
     
     func cancel() {
@@ -64,6 +89,16 @@ class DahliaViewController: UIViewController {
     }
     
     func confirm() {
-        delegate?.didProcessedImage(image: image)
+        guard let image = currentImage else {
+            return
+        }
+        delegate?.dahliaViewControllerDidProcess(self, processedImage: image)
     }
 }
+
+extension DahliaViewController: Mantis.CropViewControllerDelegate {
+    func cropViewControllerDidCrop(_ cropViewController: CropViewController, cropped: UIImage) {
+        takeoverProcessedImage(cropped)
+    }
+}
+

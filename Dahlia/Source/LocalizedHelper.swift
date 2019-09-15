@@ -10,7 +10,7 @@ import Foundation
 
 struct LocalizedHelper {
     static private(set) var bundle: Bundle? = {
-        guard let bundle = Bundle(identifier: "Dahlia") else { return nil }
+        guard let bundle = Bundle(identifier: "org.cocoapods.Dahlia") else { return nil }
         
         if let url = bundle.url(forResource: "Resource", withExtension: "bundle") {
             let bundle = Bundle(url: url)
@@ -24,7 +24,7 @@ struct LocalizedHelper {
         let value = value ?? key
         
         var text = value
-        if let bundle = Mantis.bundle {
+        if let bundle = LocalizedHelper.bundle {
             text = NSLocalizedString(key, tableName: "MantisLocalizable", bundle: bundle, value: value, comment: comment)
         }
         return text
