@@ -37,6 +37,8 @@ class DahliaViewController: UIViewController {
     private var processed = false
     private var operationBar: OperationBar!
     private var stageView: UIView!
+    private var currentProcessorViewController: UIViewController?
+    private var previewView: PreviewView!
     
     init?(image: UIImage, config: Dahlia.Config) {
         self.originalImage = image
@@ -64,7 +66,7 @@ class DahliaViewController: UIViewController {
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Magic", style: .plain, target: nil, action: nil)
         
-        stageView = PreviewView(image: processedCroppedImage!)
+        stageView = UIView()
         stageView.backgroundColor = .black
         operationBar = OperationBar()
         operationBar.backgroundColor = .red
@@ -89,19 +91,67 @@ class DahliaViewController: UIViewController {
         
         operationBar.selectedCrop = { [weak self] in
             guard let self = self else { return }
-            let vc = Mantis.cropViewController(image: self.processedWholeImage!)
+            
+            self.removePreviousView()
+            
+            let vc = Mantis.cropCustomizableViewController(image: self.processedWholeImage!)
             self.addChild(vc)
-            self.view.addSubview(vc.view)
+            self.stageView.addSubview(vc.view)
             vc.didMove(toParent: self)
+                        
+            self.currentProcessorViewController = vc
         }
         
         operationBar.selectedFilter = { [weak self] in
             guard let self = self else { return }
+            
+            self.removePreviousView()
+            
             let vc = Impression.createFilterViewController(image: self.processedCroppedImage!, delegate: nil)
             self.addChild(vc)
-            self.view.addSubview(vc.view)
+            self.stageView.addSubview(vc.view)
             vc.didMove(toParent: self)
+            
+            self.currentProcessorViewController = vc
         }
+        
+        operationBar.showPreview = {[weak self] in
+            guard let self = self else { return }
+            
+            self.removeCurrentProcessorViewController()
+            
+            guard let processedCroppedImage = self.processedCroppedImage else {
+                return
+            }
+            
+            if self.previewView == nil {
+                self.previewView = PreviewView(image: processedCroppedImage)
+                self.previewView.translatesAutoresizingMaskIntoConstraints = false
+                self.stageView.addSubview(self.previewView)
+                self.previewView.fillSuperview()
+            }
+            
+            self.previewView.image = processedCroppedImage
+        }
+        
+        operationBar.selectDefault()
+    }
+    
+    func removePreviousView() {
+        removePreview()
+        removeCurrentProcessorViewController()
+    }
+    
+    private func removePreview() {
+        if previewView != nil {
+            previewView.removeFromSuperview()
+        }
+    }
+    
+    private func removeCurrentProcessorViewController() {
+        currentProcessorViewController?.willMove(toParent: nil)
+        currentProcessorViewController?.removeFromParent()
+        currentProcessorViewController?.view.removeFromSuperview()
     }
     
     func takeoverProcessedImage(_ image: UIImage) {

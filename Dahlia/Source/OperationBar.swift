@@ -109,4 +109,8 @@ class OperationBar: UIView {
             showPreview()
         }
     }
+    
+    func selectDefault() {
+        showPreview()
+    }
 }
