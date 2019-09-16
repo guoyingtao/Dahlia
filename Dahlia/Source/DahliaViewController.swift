@@ -86,6 +86,22 @@ class DahliaViewController: UIViewController {
             operationBar.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             operationBar.heightAnchor.constraint(equalToConstant: 40)
         ])
+        
+        operationBar.selectedCrop = { [weak self] in
+            guard let self = self else { return }
+            let vc = Mantis.cropViewController(image: self.processedWholeImage!)
+            self.addChild(vc)
+            self.view.addSubview(vc.view)
+            vc.didMove(toParent: self)
+        }
+        
+        operationBar.selectedFilter = { [weak self] in
+            guard let self = self else { return }
+            let vc = Impression.createFilterViewController(image: self.processedCroppedImage!, delegate: nil)
+            self.addChild(vc)
+            self.view.addSubview(vc.view)
+            vc.didMove(toParent: self)
+        }
     }
     
     func takeoverProcessedImage(_ image: UIImage) {

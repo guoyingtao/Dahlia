@@ -34,7 +34,7 @@ class OperationBar: UIView {
         let button = UIToggleButton()
         button.onImage = UIImage(named: "crop.png", in: getBundle(), compatibleWith: nil)
         button.offImage = UIImage(named: "crop.png", in: getBundle(), compatibleWith: nil)
-        button.addTarget(self, action: #selector(didDone), for: .touchUpInside)
+        button.addTarget(self, action: #selector(didSelectCrop), for: .touchUpInside)
         return button
     } ()
 
@@ -43,7 +43,7 @@ class OperationBar: UIView {
         let button = UIToggleButton()
         button.onImage = UIImage(named: "filter.png", in: getBundle(), compatibleWith: nil)
         button.offImage = UIImage(named: "filter.png", in: getBundle(), compatibleWith: nil)
-        button.addTarget(self, action: #selector(didDone), for: .touchUpInside)
+        button.addTarget(self, action: #selector(didSelectFilter), for: .touchUpInside)
         return button
     } ()
 
@@ -85,26 +85,28 @@ class OperationBar: UIView {
     }
     
     @objc func didDone() {
+        print("Done")
         selectedDone()
     }
     
     @objc func didCancel() {
+        print("Cancel")
         selectedCancel()
     }
     
     @objc func didSelectCrop() {
         if cropButton.isOn {
-            showPreview()
-        } else {
             selectedCrop()
+        } else {
+            showPreview()
         }
     }
     
     @objc func didSelectFilter() {
         if filterButton.isOn {
-            showPreview()
-        } else {
             selectedFilter()
+        } else {
+            showPreview()
         }
     }
 }

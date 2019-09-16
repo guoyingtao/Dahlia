@@ -20,6 +20,7 @@ class ViewController: UIViewController {
     @IBAction func showEditor(_ sender: Any) {
         guard let image = UIImage(named: "sunflower") else { return }
         guard let vc = Dahlia.createDahliaViewController(image: image) else { return }
+        vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true)
     }
 }
