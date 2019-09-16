@@ -15,6 +15,8 @@ class OperationBar: UIView {
     var selectedCrop = {}
     var selectedFilter = {}
     var showPreview = {}
+    var applyCrop = {}
+    var applyFilter = {}
     
     lazy var cancelButton: UIButton = {
         let button = UIButton(type: .custom)
@@ -96,16 +98,28 @@ class OperationBar: UIView {
     
     @objc func didSelectCrop() {
         if cropButton.isOn {
+            if filterButton.isOn {
+                applyFilter()
+                filterButton.isOn = false
+            }
+            
             selectedCrop()
         } else {
+            applyCrop()
             showPreview()
         }
     }
     
     @objc func didSelectFilter() {
         if filterButton.isOn {
+            if cropButton.isOn {
+                applyCrop()
+                cropButton.isOn = false
+            }
+            
             selectedFilter()
         } else {
+            applyFilter()
             showPreview()
         }
     }

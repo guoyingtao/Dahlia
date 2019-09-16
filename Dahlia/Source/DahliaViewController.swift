@@ -39,6 +39,8 @@ class DahliaViewController: UIViewController {
     private var stageView: UIView!
     private var currentProcessorViewController: UIViewController?
     private var previewView: PreviewView!
+    private var cropViewController: CropViewController?
+    private var filterViewController: FilterViewController?
     
     init?(image: UIImage, config: Dahlia.Config) {
         self.originalImage = image
@@ -95,12 +97,14 @@ class DahliaViewController: UIViewController {
             
             self.removePreviousView()
             
-            let vc = Mantis.cropCustomizableViewController(image: self.processedWholeImage!)
-            self.addChild(vc)
-            self.stageView.addSubview(vc.view)
-            vc.didMove(toParent: self)
+            if self.cropViewController == nil {
+                self.cropViewController = Mantis.cropCustomizableViewController(image: self.processedWholeImage!)
+            }
+            self.addChild(self.cropViewController!)
+            self.stageView.addSubview(self.cropViewController!.view)
+            self.cropViewController!.didMove(toParent: self)
                         
-            self.currentProcessorViewController = vc
+            self.currentProcessorViewController = self.cropViewController!
         }
         
         operationBar.selectedFilter = { [weak self] in
@@ -133,6 +137,15 @@ class DahliaViewController: UIViewController {
             self.previewView.image = processedCroppedImage
             self.stageView.addSubview(self.previewView)
             self.previewView.fillSuperview()
+        }
+        
+        operationBar.applyCrop = { [weak self] in
+            guard let self = self else { return }
+            guard let image = self.cropViewController?.process() else {
+                return
+            }
+            
+            self.processedCroppedImage = image
         }
         
         operationBar.selectDefault()
