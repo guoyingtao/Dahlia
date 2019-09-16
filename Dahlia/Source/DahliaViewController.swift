@@ -103,6 +103,9 @@ class DahliaViewController: UIViewController {
             self.addChild(self.cropViewController!)
             self.stageView.addSubview(self.cropViewController!.view)
             self.cropViewController!.didMove(toParent: self)
+            
+            self.cropViewController!.view.translatesAutoresizingMaskIntoConstraints = false
+            self.cropViewController!.view.fillSuperview()
                         
             self.currentProcessorViewController = self.cropViewController!
         }
@@ -112,12 +115,18 @@ class DahliaViewController: UIViewController {
             
             self.removePreviousView()
             
-            let vc = Impression.createFilterViewController(image: self.processedCroppedImage!, delegate: nil)
-            self.addChild(vc)
-            self.stageView.addSubview(vc.view)
-            vc.didMove(toParent: self)
+            if self.filterViewController == nil {
+                self.filterViewController = Impression.createCustomFilterViewController(image: self.processedCroppedImage!, delegate: nil) as! FilterViewController
+            }
             
-            self.currentProcessorViewController = vc
+            self.addChild(self.filterViewController!)
+            self.stageView.addSubview(self.filterViewController!.view)
+            self.filterViewController!.didMove(toParent: self)
+            
+            self.filterViewController!.view.translatesAutoresizingMaskIntoConstraints = false
+            self.filterViewController!.view.fillSuperview()
+            
+            self.currentProcessorViewController = self.filterViewController!
         }
         
         operationBar.showPreview = {[weak self] in
