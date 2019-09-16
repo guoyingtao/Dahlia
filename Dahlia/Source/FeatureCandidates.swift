@@ -19,5 +19,5 @@ public struct FeatureCandidates: OptionSet {
     static public let custom = FeatureCandidates(rawValue: 1 << 2)
     
     static public let `default`: FeatureCandidates = [crop, filter]
-    static public let all: FeatureCandidates = [crop, filter]
+    static public let all: FeatureCandidates = [crop, filter, custom]
 }

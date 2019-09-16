@@ -10,7 +10,7 @@
 
 Pod::Spec.new do |s|
   s.name         = "Dahlia"
-  s.version      = "0.1"
+  s.version      = "0.26"
   s.summary      = "A swift tool for photo edit"
 
   s.description  = <<-DESC
@@ -26,9 +26,9 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/guoyingtao/Dahlia.git", :tag => "#{s.version}", :submodules => true }
   s.source_files  = "Dahlia/**/*.{h,swift}"
   s.resource_bundles = {
-    "Resource" => ["Dahlia/**/*.lproj/*.strings"]
+    "Resource" => ["Dahlia/**/*.{png}"],
   }
-  s.dependency 'Mantis', '~> 0.29'
-  s.dependency 'Impression', '~> 1.1.0'
+  s.dependency 'Mantis'
+  s.dependency 'Impression'
 
 end

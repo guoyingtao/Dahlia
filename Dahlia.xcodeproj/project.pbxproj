@@ -8,20 +8,28 @@
 
 /* Begin PBXBuildFile section */
 		37ED590CC617DA2B271CCDAC /* Pods_Dahlia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CAD50E926073FB7D1CD7D42 /* Pods_Dahlia.framework */; };
-		5F427324232D9168000FF555 /* ImageProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F427323232D9168000FF555 /* ImageProcessor.swift */; };
+		5F2804DA232E898D00B47FC2 /* Extensions+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2804D9232E898D00B47FC2 /* Extensions+UIView.swift */; };
+		5F2804DE232F124000B47FC2 /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2804DD232F124000B47FC2 /* PreviewView.swift */; };
+		5F2804E0232F155200B47FC2 /* UIToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2804DF232F155200B47FC2 /* UIToggleButton.swift */; };
 		5F7510302327448400244BA5 /* Dahlia.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F75102E2327448400244BA5 /* Dahlia.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5FC9CDF72327466300634CAA /* Dahlia.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 5FC9CDF62327466300634CAA /* Dahlia.podspec */; };
 		5FC9CDF92327496100634CAA /* FeatureCandidates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC9CDF82327496100634CAA /* FeatureCandidates.swift */; };
 		5FC9CDFB23274A3B00634CAA /* Dahlia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC9CDFA23274A3B00634CAA /* Dahlia.swift */; };
 		5FC9CDFD23274AF300634CAA /* DahliaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC9CDFC23274AF300634CAA /* DahliaViewController.swift */; };
+		5FCDFFE3232F3DA2004B34FE /* filter@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FCDFFDF232F3DA2004B34FE /* filter@3x.png */; };
+		5FCDFFE4232F3DA2004B34FE /* filter@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FCDFFE0232F3DA2004B34FE /* filter@2x.png */; };
+		5FCDFFE5232F3DA2004B34FE /* crop@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FCDFFE1232F3DA2004B34FE /* crop@2x.png */; };
+		5FCDFFE6232F3DA2004B34FE /* crop@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FCDFFE2232F3DA2004B34FE /* crop@3x.png */; };
 		5FFD2CDF2328753F00D5546D /* OperationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFD2CDE2328753F00D5546D /* OperationBar.swift */; };
-		5FFD2CE8232879F100D5546D /* LocalizedHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFD2CE7232879F100D5546D /* LocalizedHelper.swift */; };
+		5FFD2CE8232879F100D5546D /* ResourceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFD2CE7232879F100D5546D /* ResourceHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4CAD50E926073FB7D1CD7D42 /* Pods_Dahlia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dahlia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EEF1576A166DF78D9308EF6 /* Pods-Dahlia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dahlia.release.xcconfig"; path = "Target Support Files/Pods-Dahlia/Pods-Dahlia.release.xcconfig"; sourceTree = "<group>"; };
-		5F427323232D9168000FF555 /* ImageProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageProcessor.swift; sourceTree = "<group>"; };
+		5F2804D9232E898D00B47FC2 /* Extensions+UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extensions+UIView.swift"; sourceTree = "<group>"; };
+		5F2804DD232F124000B47FC2 /* PreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewView.swift; sourceTree = "<group>"; };
+		5F2804DF232F155200B47FC2 /* UIToggleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIToggleButton.swift; sourceTree = "<group>"; };
 		5F75102B2327448400244BA5 /* Dahlia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Dahlia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F75102E2327448400244BA5 /* Dahlia.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Dahlia.h; sourceTree = "<group>"; };
 		5F75102F2327448400244BA5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -30,8 +38,12 @@
 		5FC9CDFA23274A3B00634CAA /* Dahlia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dahlia.swift; sourceTree = "<group>"; };
 		5FC9CDFC23274AF300634CAA /* DahliaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DahliaViewController.swift; sourceTree = "<group>"; };
 		5FC9CE0B23274E7400634CAA /* _Pods.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = _Pods.xcodeproj; path = Impression/_Pods.xcodeproj; sourceTree = "<group>"; };
+		5FCDFFDF232F3DA2004B34FE /* filter@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "filter@3x.png"; sourceTree = "<group>"; };
+		5FCDFFE0232F3DA2004B34FE /* filter@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "filter@2x.png"; sourceTree = "<group>"; };
+		5FCDFFE1232F3DA2004B34FE /* crop@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "crop@2x.png"; sourceTree = "<group>"; };
+		5FCDFFE2232F3DA2004B34FE /* crop@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "crop@3x.png"; sourceTree = "<group>"; };
 		5FFD2CDE2328753F00D5546D /* OperationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationBar.swift; sourceTree = "<group>"; };
-		5FFD2CE7232879F100D5546D /* LocalizedHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedHelper.swift; sourceTree = "<group>"; };
+		5FFD2CE7232879F100D5546D /* ResourceHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceHelper.swift; sourceTree = "<group>"; };
 		7FA0ACEF906DC9093D8EA0B4 /* Pods-Dahlia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dahlia.debug.xcconfig"; path = "Target Support Files/Pods-Dahlia/Pods-Dahlia.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -92,15 +104,30 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		5FCDFFDE232F3DA2004B34FE /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				5FCDFFDF232F3DA2004B34FE /* filter@3x.png */,
+				5FCDFFE0232F3DA2004B34FE /* filter@2x.png */,
+				5FCDFFE1232F3DA2004B34FE /* crop@2x.png */,
+				5FCDFFE2232F3DA2004B34FE /* crop@3x.png */,
+			);
+			name = Resource;
+			path = Dahlia/Resource;
+			sourceTree = SOURCE_ROOT;
+		};
 		5FD3FF8D2327E7E90026A16C /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				5FCDFFDE232F3DA2004B34FE /* Resource */,
+				5F2804D9232E898D00B47FC2 /* Extensions+UIView.swift */,
 				5FC9CDF82327496100634CAA /* FeatureCandidates.swift */,
 				5FC9CDFA23274A3B00634CAA /* Dahlia.swift */,
 				5FC9CDFC23274AF300634CAA /* DahliaViewController.swift */,
 				5FFD2CDE2328753F00D5546D /* OperationBar.swift */,
-				5FFD2CE7232879F100D5546D /* LocalizedHelper.swift */,
-				5F427323232D9168000FF555 /* ImageProcessor.swift */,
+				5FFD2CE7232879F100D5546D /* ResourceHelper.swift */,
+				5F2804DD232F124000B47FC2 /* PreviewView.swift */,
+				5F2804DF232F155200B47FC2 /* UIToggleButton.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -190,7 +217,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5FCDFFE6232F3DA2004B34FE /* crop@3x.png in Resources */,
+				5FCDFFE5232F3DA2004B34FE /* crop@2x.png in Resources */,
 				5FC9CDF72327466300634CAA /* Dahlia.podspec in Resources */,
+				5FCDFFE4232F3DA2004B34FE /* filter@2x.png in Resources */,
+				5FCDFFE3232F3DA2004B34FE /* filter@3x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -226,11 +257,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F2804DA232E898D00B47FC2 /* Extensions+UIView.swift in Sources */,
+				5F2804E0232F155200B47FC2 /* UIToggleButton.swift in Sources */,
+				5F2804DE232F124000B47FC2 /* PreviewView.swift in Sources */,
 				5FC9CDFB23274A3B00634CAA /* Dahlia.swift in Sources */,
-				5FFD2CE8232879F100D5546D /* LocalizedHelper.swift in Sources */,
+				5FFD2CE8232879F100D5546D /* ResourceHelper.swift in Sources */,
 				5FC9CDF92327496100634CAA /* FeatureCandidates.swift in Sources */,
 				5FC9CDFD23274AF300634CAA /* DahliaViewController.swift in Sources */,
-				5F427324232D9168000FF555 /* ImageProcessor.swift in Sources */,
 				5FFD2CDF2328753F00D5546D /* OperationBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -374,6 +407,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Dahlia/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -402,6 +436,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Dahlia/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -28,20 +28,27 @@ extension DahliaViewControllerDelegate {
 
 class DahliaViewController: UIViewController {
     
-    public var image: UIImage?
-    public var currentImage: UIImage?
+    public var originalImage: UIImage?
+    public var processedWholeImage: UIImage?
+    public var processedCroppedImage: UIImage?
     public var config = Dahlia.Config()
     public var delegate: DahliaViewControllerDelegate?
-    public var imageProcessorList: [ImageProcessor] = []
+    
+    private var processed = false
+    private var operationBar: OperationBar!
+    private var stageView: UIView!
     
     init?(image: UIImage, config: Dahlia.Config) {
+        self.originalImage = image
+        self.config = config
         
-        guard let cgImage = image.cgImage?.copy() else {
+        guard let image = originalImage, let cgImage = image.cgImage?.copy() else {
             return nil
         }
         
-        self.image = UIImage(cgImage: cgImage, scale: image.scale, orientation: image.imageOrientation)
-        self.config = config
+        processedWholeImage = UIImage(cgImage: cgImage, scale: image.scale, orientation: image.imageOrientation)
+        processedCroppedImage = UIImage(cgImage: cgImage, scale: image.scale, orientation: image.imageOrientation)
+
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -53,52 +60,57 @@ class DahliaViewController: UIViewController {
         super.viewDidLoad()
         
         self.navigationController?.isNavigationBarHidden = false
-        self.navigationController?.isToolbarHidden = false
+        self.navigationController?.isToolbarHidden = true
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Magic", style: .plain, target: nil, action: nil)
         
-        if self.config.features.contains(.crop) {
-            let vc = Mantis.cropViewController(image: UIImage())
-            let processor = ImageProcessor(title: "Crop", icon: UIImage(), selectedIcon: UIImage(), relatedViewController: vc)
+        stageView = PreviewView(image: processedCroppedImage!)
+        stageView.backgroundColor = .black
+        operationBar = OperationBar()
+        operationBar.backgroundColor = .red
+        view.addSubview(stageView)
+        view.addSubview(operationBar)
                 
-            imageProcessorList.append(processor)
-        }
+        stageView.translatesAutoresizingMaskIntoConstraints = false
+        operationBar.translatesAutoresizingMaskIntoConstraints = false
         
-        if self.config.features.contains(.filter) {
-            let vc = Impression.createFilterViewController(image: UIImage(), delegate: nil, useDefaultFilters: true)
-            
-            let processor = ImageProcessor(title: "Filter", icon: UIImage(), selectedIcon: UIImage(), relatedViewController: vc)
-                
-            imageProcessorList.append(processor)
-        }
+        operationBar.createToolbarUI()
+        
+        NSLayoutConstraint.activate([
+            stageView.widthAnchor.constraint(equalTo: view.widthAnchor),
+            stageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            stageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            stageView.bottomAnchor.constraint(equalTo: operationBar.topAnchor),
+            operationBar.widthAnchor.constraint(equalTo: view.widthAnchor),
+            operationBar.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            operationBar.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            operationBar.heightAnchor.constraint(equalToConstant: 40)
+        ])
     }
     
     func takeoverProcessedImage(_ image: UIImage) {
-        currentImage = image
+        processedWholeImage = image
+    }
+    
+    func alterProcessor() {
+        
     }
 
     func confirmCancel() {
-        guard let image = image else {
+        guard let image = originalImage else {
             return
         }
         delegate?.dahliaViewControllerDidFailedToProcess(self, originalImage: image)
     }
     
     func cancel() {
-        
+        confirmCancel()
     }
     
     func confirm() {
-        guard let image = currentImage else {
+        guard let image = processedCroppedImage else {
             return
         }
         delegate?.dahliaViewControllerDidProcess(self, processedImage: image)
     }
 }
-
-extension DahliaViewController: Mantis.CropViewControllerDelegate {
-    func cropViewControllerDidCrop(_ cropViewController: CropViewController, cropped: UIImage) {
-        takeoverProcessedImage(cropped)
-    }
-}
-
