@@ -68,6 +68,7 @@ class DahliaViewController: UIViewController {
         
         stageView = UIView()
         stageView.backgroundColor = .black
+        stageView.clipsToBounds = true
         operationBar = OperationBar()
         operationBar.backgroundColor = .red
         view.addSubview(stageView)
@@ -127,11 +128,11 @@ class DahliaViewController: UIViewController {
             if self.previewView == nil {
                 self.previewView = PreviewView(image: processedCroppedImage)
                 self.previewView.translatesAutoresizingMaskIntoConstraints = false
-                self.stageView.addSubview(self.previewView)
-                self.previewView.fillSuperview()
             }
             
             self.previewView.image = processedCroppedImage
+            self.stageView.addSubview(self.previewView)
+            self.previewView.fillSuperview()
         }
         
         operationBar.selectDefault()
@@ -158,10 +159,6 @@ class DahliaViewController: UIViewController {
         processedWholeImage = image
     }
     
-    func alterProcessor() {
-        
-    }
-
     func confirmCancel() {
         guard let image = originalImage else {
             return
