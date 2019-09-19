@@ -1,5 +1,5 @@
 PODS:
-  - Impression (1.1.1)
+  - Impression (1.1.2)
   - Mantis (0.30)
 
 DEPENDENCIES:
@@ -12,7 +12,7 @@ SPEC REPOS:
     - Mantis
 
 SPEC CHECKSUMS:
-  Impression: 1ff312fe6297348dd509365c110266f5525497f4
+  Impression: c09aa6a5af8df7f9eb88a8b822a8dbccac349764
   Mantis: 44ad1c042fad8d98db3dc71874c933c94e69a682
 
 PODFILE CHECKSUM: 25d878b151214ceed3b4e18b581eddb2ea1f6bd5

@@ -30,6 +30,7 @@ class DahliaViewController: UIViewController {
     
     public var originalImage: UIImage?
     public var processedWholeImage: UIImage?
+    public var croppedImage: UIImage?
     public var processedCroppedImage: UIImage?
     public var config = Dahlia.Config()
     public var delegate: DahliaViewControllerDelegate?
@@ -51,7 +52,6 @@ class DahliaViewController: UIViewController {
         }
         
         processedWholeImage = UIImage(cgImage: cgImage, scale: image.scale, orientation: image.imageOrientation)
-        processedCroppedImage = UIImage(cgImage: cgImage, scale: image.scale, orientation: image.imageOrientation)
 
         super.init(nibName: nil, bundle: nil)
     }
@@ -99,7 +99,10 @@ class DahliaViewController: UIViewController {
             
             if self.cropViewController == nil {
                 self.cropViewController = Mantis.cropCustomizableViewController(image: self.processedWholeImage!)
-            }
+            } else {
+                self.cropViewController?.image = self.processedWholeImage!
+            }            
+            
             self.addChild(self.cropViewController!)
             self.stageView.addSubview(self.cropViewController!.view)
             self.cropViewController!.didMove(toParent: self)
@@ -116,7 +119,9 @@ class DahliaViewController: UIViewController {
             self.removePreviousView()
             
             if self.filterViewController == nil {
-                self.filterViewController = Impression.createCustomFilterViewController(image: self.processedCroppedImage!, delegate: nil) as! FilterViewController
+                self.filterViewController = Impression.createCustomFilterViewController(image: self.getCroppedImage()!, delegate: nil)
+            } else {
+                self.filterViewController?.image = self.getCroppedImage()!
             }
             
             self.addChild(self.filterViewController!)
@@ -134,7 +139,7 @@ class DahliaViewController: UIViewController {
             
             self.removeCurrentProcessorViewController()
             
-            guard let processedCroppedImage = self.processedCroppedImage else {
+            guard let processedCroppedImage = self.getProcessedCroppedImage() else {
                 return
             }
             
@@ -150,14 +155,45 @@ class DahliaViewController: UIViewController {
         
         operationBar.applyCrop = { [weak self] in
             guard let self = self else { return }
-            guard let image = self.cropViewController?.process() else {
+            guard let image = self.cropViewController?.process(self.originalImage!) else {
                 return
             }
             
-            self.processedCroppedImage = image
+            self.croppedImage = image
+        }
+        
+        operationBar.applyFilter = { [weak self] in
+            guard let self = self else { return }
+            guard let processedCroppedImage = self.filterViewController?.process( self.getCroppedImage()!) else {
+                return
+            }
+            
+            self.processedCroppedImage = processedCroppedImage
+            
+            guard let processedWholeImage = self.filterViewController?.process( self.originalImage!) else {
+                return
+            }
+            
+            self.processedWholeImage = processedWholeImage
         }
         
         operationBar.selectDefault()
+    }
+    
+    func getCroppedImage() -> UIImage? {
+        if croppedImage == nil {
+            return processedWholeImage
+        }
+        
+        return croppedImage
+    }
+    
+    func getProcessedCroppedImage() -> UIImage? {
+        if processedCroppedImage == nil {
+            return processedWholeImage
+        }
+        
+        return processedCroppedImage
     }
     
     func removePreviousView() {
@@ -193,7 +229,7 @@ class DahliaViewController: UIViewController {
     }
     
     func confirm() {
-        guard let image = processedCroppedImage else {
+        guard let image = getProcessedCroppedImage() else {
             return
         }
         delegate?.dahliaViewControllerDidProcess(self, processedImage: image)

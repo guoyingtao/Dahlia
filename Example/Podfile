@@ -6,6 +6,7 @@ target 'DahliaExample' do
   use_frameworks!
 
   # Pods for DahliaExample
-   pod 'Dahlia', :path => '../'
-
+  pod 'Mantis', :path => '../../Mantis'
+  pod 'Impression', :path => '../../Impression'
+  pod 'Dahlia', :path => '../'
 end

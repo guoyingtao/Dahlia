@@ -2,26 +2,27 @@ PODS:
   - Dahlia (0.26):
     - Impression
     - Mantis
-  - Impression (1.1.1)
+  - Impression (1.1.3)
   - Mantis (0.30)
 
 DEPENDENCIES:
   - Dahlia (from `../`)
-
-SPEC REPOS:
-  trunk:
-    - Impression
-    - Mantis
+  - Impression (from `../../Impression`)
+  - Mantis (from `../../Mantis`)
 
 EXTERNAL SOURCES:
   Dahlia:
     :path: "../"
+  Impression:
+    :path: "../../Impression"
+  Mantis:
+    :path: "../../Mantis"
 
 SPEC CHECKSUMS:
   Dahlia: 3edbf256be9453ca640ed1b6c69b2e5b05a11c2f
-  Impression: 1ff312fe6297348dd509365c110266f5525497f4
+  Impression: 9f7e943653000b480b5d1b84c2aeb65f777348b5
   Mantis: 44ad1c042fad8d98db3dc71874c933c94e69a682
 
-PODFILE CHECKSUM: 8663faccf25a12f3c460a5e939a30fc8c3acf51f
+PODFILE CHECKSUM: c4991c896925d9debff4e85fff03be9efdafd9d3
 
 COCOAPODS: 1.8.0.beta.2
