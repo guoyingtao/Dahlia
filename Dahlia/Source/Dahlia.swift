@@ -8,8 +8,9 @@
 
 import Foundation
 
-public func createDahliaViewController(image: UIImage, config: Dahlia.Config = Dahlia.Config()) -> UIViewController? {
+public func createDahliaViewController(image: UIImage, config: Dahlia.Config = Dahlia.Config(), delegate: DahliaViewControllerDelegate? = nil) -> UIViewController? {
     guard let vc = DahliaViewController(image: image, config: config) else { return nil }
+    vc.delegate = delegate
     let unc = UINavigationController(rootViewController: vc)
     return unc
 }

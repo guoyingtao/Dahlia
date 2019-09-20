@@ -10,13 +10,13 @@ import UIKit
 import Mantis
 import Impression
 
-protocol DahliaViewControllerDelegate {
+public protocol DahliaViewControllerDelegate {
     func dahliaViewControllerDidProcess(_ dahliaViewController: DahliaViewController, processedImage: UIImage)
     func dahliaViewControllerDidFailedToProcess(_ dahliaViewController: DahliaViewController, originalImage: UIImage)
     func dahliaViewControllerDidCancel(_ dahliaViewController: DahliaViewController, originalImage: UIImage)
 }
 
-extension DahliaViewControllerDelegate {
+public extension DahliaViewControllerDelegate {
     func dahliaViewControllerDidFailedToProcess(_ dahliaViewController: DahliaViewController, originalImage: UIImage) {
         
     }
@@ -26,7 +26,7 @@ extension DahliaViewControllerDelegate {
     }
 }
 
-class DahliaViewController: UIViewController {
+public class DahliaViewController: UIViewController {
     
     public var originalImage: UIImage?
     public var processedWholeImage: UIImage?
@@ -60,7 +60,7 @@ class DahliaViewController: UIViewController {
         super.init(coder: aDecoder)
     }
     
-    override func viewDidLoad() {
+    override public func viewDidLoad() {
         super.viewDidLoad()
         
         self.navigationController?.isNavigationBarHidden = false
@@ -177,6 +177,14 @@ class DahliaViewController: UIViewController {
             self.processedWholeImage = processedWholeImage
         }
         
+        operationBar.selectedCancel = { [weak self] in
+            self?.cancel()
+        }
+        
+        operationBar.selectedDone = { [weak self] in
+            self?.confirm()
+        }
+        
         operationBar.selectDefault()
     }
     
@@ -190,7 +198,7 @@ class DahliaViewController: UIViewController {
     
     func getProcessedCroppedImage() -> UIImage? {
         if processedCroppedImage == nil {
-            return processedWholeImage
+            return getCroppedImage()
         }
         
         return processedCroppedImage

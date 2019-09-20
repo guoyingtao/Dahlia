@@ -8,6 +8,12 @@
 
 import UIKit
 
+enum OperationStatus {
+    case preview
+    case crop
+    case filter
+}
+
 class OperationBar: UIView {
 
     var selectedCancel = {}
@@ -17,6 +23,8 @@ class OperationBar: UIView {
     var showPreview = {}
     var applyCrop = {}
     var applyFilter = {}
+    
+    var status: OperationStatus = .preview
     
     lazy var cancelButton: UIButton = {
         let button = UIButton(type: .custom)
@@ -87,12 +95,18 @@ class OperationBar: UIView {
     }
     
     @objc func didDone() {
-        print("Done")
+        switch status {
+        case .crop:
+            applyCrop()
+        case .filter:
+            applyFilter()
+        default:
+            ()
+        }
         selectedDone()
     }
     
     @objc func didCancel() {
-        print("Cancel")
         selectedCancel()
     }
     
@@ -104,9 +118,11 @@ class OperationBar: UIView {
             }
             
             selectedCrop()
+            status = .crop
         } else {
             applyCrop()
             showPreview()
+            status = .preview
         }
     }
     
@@ -118,13 +134,16 @@ class OperationBar: UIView {
             }
             
             selectedFilter()
+            status = .filter
         } else {
             applyFilter()
             showPreview()
+            status = .preview
         }
     }
     
     func selectDefault() {
         showPreview()
+        status = .preview
     }
 }
