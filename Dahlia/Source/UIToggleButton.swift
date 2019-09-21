@@ -36,7 +36,7 @@ class UIToggleButton: UIButton {
             if let onImage = onImage {
                 let tintedImage = onImage.withRenderingMode(.alwaysTemplate)
                 setImage(tintedImage, for: .normal)
-                tintColor = .black
+                tintColor = .white
             }
         } else {
             if let offImage = offImage {
