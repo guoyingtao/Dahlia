@@ -72,7 +72,7 @@ public class DahliaViewController: UIViewController {
         stageView.backgroundColor = .black
         stageView.clipsToBounds = true
         operationBar = OperationBar()
-        operationBar.backgroundColor = .red
+        operationBar.backgroundColor = .black
         view.addSubview(stageView)
         view.addSubview(operationBar)
                 

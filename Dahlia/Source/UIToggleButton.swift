@@ -33,12 +33,16 @@ class UIToggleButton: UIButton {
      
     func updateDisplay(){
         if isOn {
-            if let onImage = onImage{
-                setBackgroundImage(onImage, for: .normal)
+            if let onImage = onImage {
+                let tintedImage = onImage.withRenderingMode(.alwaysTemplate)
+                setImage(tintedImage, for: .normal)
+                tintColor = .black
             }
         } else {
-            if let offImage = offImage{
-                setBackgroundImage(offImage, for: .normal)
+            if let offImage = offImage {
+                let tintedImage = offImage.withRenderingMode(.alwaysTemplate)
+                setImage(tintedImage, for: .normal)
+                tintColor = .lightGray
             }
         }
     }
